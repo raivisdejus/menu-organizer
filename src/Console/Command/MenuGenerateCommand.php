@@ -209,15 +209,13 @@ class MenuGenerateCommand extends Command
      * Get menu item parent category id
      *
      * @param Category $category
-     * @return mixed
+     * @return string
      */
     protected function getParentId(Category $category)
     {
-        if (!isset($this->itemIds[$category->getParentId()])) {
-            return '0';
-        }
-
-        return $this->itemIds[$category->getParentId()];
+        return (!($this->itemIds[$category->getParentId()] ?? null))
+            ? '0'
+            : $this->itemIds[$category->getParentId()];
     }
 
     /**
@@ -245,7 +243,7 @@ class MenuGenerateCommand extends Command
         $item = $this->itemFactory->create();
         $item->addData($data);
         $this->itemResource->save($item);
-        $this->itemIds[$category->getId()] = $item->getId();
+        $this->itemIds[$category->getId()] = (string) $item->getId();
     }
 
     /**
