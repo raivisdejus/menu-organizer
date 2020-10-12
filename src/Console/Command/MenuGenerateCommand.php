@@ -38,7 +38,7 @@ class MenuGenerateCommand extends Command
 
     protected $menuConfig = [
         MenuInterface::CSS_CLASS => 'Menu',
-        MenuInterface::IS_ACTIVE =>  => '1',
+        MenuInterface::IS_ACTIVE => '1',
         'store_id' => [
             \Magento\Store\Model\Store::DEFAULT_STORE_ID
         ],
