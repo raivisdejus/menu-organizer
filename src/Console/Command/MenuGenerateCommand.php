@@ -254,7 +254,7 @@ class MenuGenerateCommand extends Command
      * @param Category $category
      * @return bool
      */
-    public function isCategoryAvailable(Category $category)
+    protected function isCategoryAvailable(Category $category)
     {
         if ($category->getLevel() > 4) {
             return false;
